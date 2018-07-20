@@ -91,23 +91,29 @@ Windows下安装
 ### 2.2 打包部署
 
 - `监控平台&服务治理`
+```
   Eureka Server (服务注册发现)
   maven spring-boot:run或者
-                          maven clean package
-                          java -jar eureka-sever-1.0.0-SNAPSHOT.jar
+  maven clean package
+  java -jar eureka-sever-1.0.0-SNAPSHOT.jar
  服务地址 http://127.0.0.1:8666
+```
 
 - ` Hystrix Dashboard (断路器监控面板)`
+```
   maven spring-boot:run或者
-                          maven clean package
-                          java -jar  hystrixdashboard-1.0.0-SNAPSHOT.jar
+  maven clean package
+  java -jar  hystrixdashboard-1.0.0-SNAPSHOT.jar
   服务地址 http://127.0.0.1:9097      
+```
                
-- `Zipkin Server & UI (链路追踪数据收集服务及监控面板) `    
+- `Zipkin Server & UI (链路追踪数据收集服务及监控面板)`
+```    
  maven spring-boot:run或者
-                          maven clean package
-                          java -jar  zipkin-1.0.0-SNAPSHOT.jar
+ maven clean package
+ java -jar  zipkin-1.0.0-SNAPSHOT.jar
   服务地址 http://127.0.0.1:9411 
+```
   
  - `SpringBoot Admin (服务状态监控)`
   见1.2                      
@@ -115,25 +121,33 @@ Windows下安装
    
   
   -`用户服务(User Service)`
+  ```
   maven spring-boot:run或者
-                          maven clean package
-                          java -jar user-srv.jar
+  maven clean package
+  java -jar user-srv.jar
   服务地址 http://127.0.0.1:8083
+  ```
 
  - `房产服务(House Service)`
+ ```
   maven spring-boot:run或者
-                          maven clean package
-                          java -jar house-srv-0.0.1-SNAPSHOT.jar
+  maven clean package
+  java -jar house-srv-0.0.1-SNAPSHOT.jar
   服务地址 http://127.0.0.1:8084
+ ```
 
   - `评论服务(Comment Service)`
-  maven spring-boot:run或者
-                          maven clean package
-                          java -jar comment-srv-0.0.1-SNAPSHOT.jar
+  ```
+  maven spring-boot:run或者 
+  maven clean package
+  java -jar comment-srv-0.0.1-SNAPSHOT.jar
   服务地址 http://127.0.0.1:8085
+  ```
 
   - `网关服务(API Gateway)`
+  ```
   maven spring-boot:run或者
-                          maven clean package
-                          java -jar api-gateway-0.0.1-SNAPSHOT.jar
+  maven clean package
+  java -jar api-gateway-0.0.1-SNAPSHOT.jar
   服务地址 http://127.0.0.1:8085
+  ```
