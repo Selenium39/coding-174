@@ -1,19 +1,19 @@
-1.单体工程
+## 1.单体工程
 
-1.1 环境准备
+### 1.1 环境准备
          
-Java   :  版本JDK1.8及以上
-Maven:  版本3.0及以上
-开发IDE: Spring Tool Suite(STS)3.8.4.RELEASE 或者 Intellij  Idea
-Mysql :  版本5.6及以上,导入sql文件houses_2018-01-07.sql         
-     Linux & Mac 下安装  
+`Java`   :  版本JDK1.8及以上
+`Maven`:  版本3.0及以上
+`开发IDE`: Spring Tool Suite(STS)3.8.4.RELEASE 或者 Intellij  Idea
+`Mysql` :  版本5.6及以上,导入sql文件houses_2018-01-07.sql         
+          Linux & Mac 下安装  
                  Mac 通过brew install mysql 安装
                  Linux 请参考博客https://www.cnblogs.com/bookwed/p/5896619.html
-    Windows下安装   
+           Windows下安装   
                请参考博客https://www.cnblogs.com/sshoub/p/4321640.html
 
-Redis :   版本2.8及以上
-  Linux & Mac 下安装            
+`Redis` :   版本2.8及以上
+  `Linux & Mac 下安装 `           
 $ wget http://download.redis.io/releases/redis-3.2.11.tar.gz
 $ tar xzf redis-3.2.11.tar.gz
 $ cd redis-3.2.11
@@ -48,7 +48,7 @@ $ vim /the/path/nginx/nginx.conf
 $ cd /the/path/nginx
 #启动nginx
 $ sbin/nginx 
-# 修改nginx.conf进行reload即可生效
+#修改nginx.conf进行reload即可生效
 $ sbin/nginx -s reload
 
       Windows下安装 
@@ -57,7 +57,7 @@ $ sbin/nginx -s reload
 
     
  
-1.2 打包部署
+### 1.2 打包部署
 
  SpringAdmin监控工程的打包启动     
   方式一
@@ -74,8 +74,8 @@ $ sbin/nginx -s reload
                 通过浏览器方式http://localhost:8091/index
 
 
-2.微服务工程
-2.1 环境准备
+## 2.微服务工程
+### 2.1 环境准备
          
 Java   :  版本JDK1.8及以上
 Maven:  版本3.0及以上
@@ -83,7 +83,7 @@ Mysql :  版本5.6及以上 ，安装见1.1，导入sql文件comment_2018-01-07.
 Redis :   版本2.8及以上 ，安装见1.1
 Nginx:    版本1.8.0及以上，安装见1.1
 
-2.2 打包部署
+### 2.2 打包部署
 
  监控平台&服务治理
   Eureka Server (服务注册发现)
