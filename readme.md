@@ -41,9 +41,11 @@ Linux & Mac 下安装
 $ wget http://nginx.org/download/nginx-1.8.1.tar.gz
 $ tar -xzvf nginx-1.8.1.tar.gz
 $ cd nginx-1.8.1
+
 #指定nginx安装目录到你本地某个目录
 $ ./configure —prefix=/the/path/nginx
 $ make && make install
+
 #修改配置文件，nginx.conf见代码包
 $ vim /the/path/nginx/nginx.conf
 $ cd /the/path/nginx
@@ -56,7 +58,9 @@ Windows下安装
 下载 http://nginx.org/download/nginx-1.8.1.zip
 解压后，进入nginx目录，修改nginx.conf文件，执行nginx.exe
 
+
 ```
+
 
 ### 1.2 打包部署
 
@@ -86,48 +90,49 @@ Windows下安装
 
 ### 2.2 打包部署
 
- `监控平台&服务治理`
+- `监控平台&服务治理`
   Eureka Server (服务注册发现)
   maven spring-boot:run或者
                           maven clean package
                           java -jar eureka-sever-1.0.0-SNAPSHOT.jar
  服务地址 http://127.0.0.1:8666
 
- ` Hystrix Dashboard (断路器监控面板)`
+- ` Hystrix Dashboard (断路器监控面板)`
   maven spring-boot:run或者
                           maven clean package
                           java -jar  hystrixdashboard-1.0.0-SNAPSHOT.jar
   服务地址 http://127.0.0.1:9097      
                
- `Zipkin Server & UI (链路追踪数据收集服务及监控面板) `    
+- `Zipkin Server & UI (链路追踪数据收集服务及监控面板) `    
  maven spring-boot:run或者
                           maven clean package
                           java -jar  zipkin-1.0.0-SNAPSHOT.jar
   服务地址 http://127.0.0.1:9411 
   
-  `SpringBoot Admin (服务状态监控)`
+ - `SpringBoot Admin (服务状态监控)`
   见1.2                      
  业务服务
    
-   `用户服务(User Service)`
+  
+  -`用户服务(User Service)`
   maven spring-boot:run或者
                           maven clean package
                           java -jar user-srv.jar
   服务地址 http://127.0.0.1:8083
 
-  `房产服务(House Service)`
+ - `房产服务(House Service)`
   maven spring-boot:run或者
                           maven clean package
                           java -jar house-srv-0.0.1-SNAPSHOT.jar
   服务地址 http://127.0.0.1:8084
 
-   `评论服务(Comment Service)`
+  - `评论服务(Comment Service)`
   maven spring-boot:run或者
                           maven clean package
                           java -jar comment-srv-0.0.1-SNAPSHOT.jar
   服务地址 http://127.0.0.1:8085
 
-    `网关服务(API Gateway)`
+  - `网关服务(API Gateway)`
   maven spring-boot:run或者
                           maven clean package
                           java -jar api-gateway-0.0.1-SNAPSHOT.jar
