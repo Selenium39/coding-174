@@ -27,7 +27,7 @@ $ cd src
 #启动成功执行redis-cli进入redis命令行终端
 $ nohup ./redis-server &
 
-```
+
  Windows下安装            
  下载地址：https://github.com/MSOpenTech/redis/releases。
   Redis-x64-xxx.zip压缩包到 C 盘，解压后，将文件夹重新命名为 redis, 打开一个 cmd 窗口使用 
@@ -58,20 +58,17 @@ Windows下安装
 下载 http://nginx.org/download/nginx-1.8.1.zip
 解压后，进入nginx目录，修改nginx.conf文件，执行nginx.exe
 
-
 ```
-
-
 ### 1.2 打包部署
 
- - SpringAdmin监控工程的打包启动     
+SpringAdmin监控工程的打包启动     
   方式一
                 maven clean package
                 java -jar target/admin-0.0.1-SNAPSHOT.jar
   方式二               
                 maven spring-boot:run
 
- - 房产工程的打包启动  
+房产工程的打包启动  
                 上述环境和依赖组件准备好后，在application.properties文件中修改相应IP、Port，
                 工程根目录下执行maven clean package,然后进入house-web/target目录，会发现有一个
                 house-web-1.0.0-SNAPSHOT.jar ;
@@ -90,64 +87,64 @@ Windows下安装
 
 ### 2.2 打包部署
 
-- `监控平台&服务治理`
-```
+**监控平台&服务治理**
+
   Eureka Server (服务注册发现)
   maven spring-boot:run或者
   maven clean package
   java -jar eureka-sever-1.0.0-SNAPSHOT.jar
  服务地址 http://127.0.0.1:8666
-```
 
-- ` Hystrix Dashboard (断路器监控面板)`
-```
+
+**Hystrix Dashboard (断路器监控面板)**
+
   maven spring-boot:run或者
   maven clean package
   java -jar  hystrixdashboard-1.0.0-SNAPSHOT.jar
   服务地址 http://127.0.0.1:9097      
-```
+
                
-- `Zipkin Server & UI (链路追踪数据收集服务及监控面板)`
-```    
+**Zipkin Server & UI (链路追踪数据收集服务及监控面板)**
+   
  maven spring-boot:run或者
  maven clean package
  java -jar  zipkin-1.0.0-SNAPSHOT.jar
   服务地址 http://127.0.0.1:9411 
-```
+
   
- - `SpringBoot Admin (服务状态监控)`
+**SpringBoot Admin (服务状态监控)**
   见1.2                      
  业务服务
    
   
-  -`用户服务(User Service)`
-  ```
+**用户服务(User Service)** 
+  
   maven spring-boot:run或者
   maven clean package
   java -jar user-srv.jar
   服务地址 http://127.0.0.1:8083
   ```
 
- - `房产服务(House Service)`
- ```
+**房产服务(House Service)**
+ 
   maven spring-boot:run或者
   maven clean package
   java -jar house-srv-0.0.1-SNAPSHOT.jar
   服务地址 http://127.0.0.1:8084
- ```
+ 
 
-  - `评论服务(Comment Service)`
-  ```
+**评论服务(Comment Service)** 
+  
   maven spring-boot:run或者 
   maven clean package
   java -jar comment-srv-0.0.1-SNAPSHOT.jar
   服务地址 http://127.0.0.1:8085
-  ```
+  
 
-  - `网关服务(API Gateway)`
-  ```
+**网关服务(API Gateway)** 
+  
   maven spring-boot:run或者
   maven clean package
   java -jar api-gateway-0.0.1-SNAPSHOT.jar
   服务地址 http://127.0.0.1:8085
-  ```
+  
