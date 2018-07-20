@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Zoner HTML Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Zoner&rdquo; Documentation by &ldquo;ThemeStarz&rdquo; v1.0.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Zoner HTML Template&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 29/05/2014<br>
+					By: ThemeStarz<br>
+					Email: <a href="mailto:support@theme-starz.com">support@theme-starz.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/themestarz">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#editing-blocks">Block Class</a></li>
+			<li><a href="#editing-source-scss-files">Editing source SCSS Files</a></li>
+			<li><a href="#colors">Colors</a></li>
+			<li><a href="#email">Email Setting</a></li>
+			<li><a href="#classes">CSS Classes You Can use in HTML</a></li>
+			<li><a href="#dynamic-markers">Dynamically Display Markers on Google Map</a></li>
+			<li><a href="#rtl">RTL Support</a></li>
+		</ol>
+		
+		<hr>
+
+        <h3 id="headers"><strong>Header (Navigation) Settings</strong></h3>
+
+        <p>You can choose between three header types:</p>
+
+        <ul>
+             <li><strong>Default</strong> - navigation is on the top of the page</li>
+             <li><strong>Fixed</strong> - navigation is "sticked" on the top of the page. Even when scrolling</li>
+             <li><strong>Fixed on the Bottom</strong> - navigation is placed to bottom of the page. But when the user scrolls, navigation
+             will be sticked to the top after certain amount of scroll. It is great in fullscreen homepages.</li>
+        </ul>
+
+        <p>To set your favorite header style you need to add some classes in the <code>&lt;body&gt;</code> tag:</p>
+        <br>
+        <p><strong>1. For <em>Default Navigation</em>:</strong></p>
+<pre>
+&lt;body class=""&gt;
+    <em style="color: #7c7c7c">// your HTML content</em>
+&lt;/body&gt;
+</pre>
+        <p>For default navigation you don't need to use any class.</p>
+        <br>
+        <p><strong>2. For <em>Navigation Fixed to Bottom</em>:</strong></p>
+<pre>
+&lt;body class="<strong>navigation-fixed-bottom has-fullscreen-map</strong>"&gt;
+    <em style="color: #7c7c7c">// your HTML content</em>
+&lt;/body&gt;
+</pre>
+        <p><mark>Note:</mark> Note the <code>has-fullscreen-map</code> class. It <strong>must</strong> be used when you use <code>navigation-fixed-bottom</code></p>
+        <br>
+        <p><strong>3. For <em>Navigation Fixed to Top</em>:</strong></p>
+<pre>
+&lt;body class="<strong>navigation-fixed-top</strong>"&gt;
+    <em style="color: #7c7c7c">// your HTML content</em>
+&lt;/body&gt;
+</pre>
+        <hr>
+
+        <h3 id="map-provider"><strong>Choosing a Map Provider</strong></h3>
+        <p>Zoner is the first real estate template which supports <a href="http://www.openstreetmap.org/">OpenStreetMap</a>. So you can choose between these maps:</p>
+        <ul>
+            <li>Google Map</li>
+            <li>OpenStreetMap</li>
+        </ul>
+        <p>Setting the <strong>Homepage</strong> map:</p>
+        <h4><strong>1. Google Map</strong></h4>
+        <ol>
+            <li>Add <code><strong>map-google</strong></code> class to the <code>&lt;body&gt;</code> tag</li>
+            <li>Make sure you are calling <code>&lt;script type="text/javascript" src="assets/js/custom-map.js"&gt;&lt;/script&gt;</code></li>
+            <li>Set <code>_latitude</code>, <code>_longitude</code> and call function <code>createHomepageGoogleMap(_latitude,_longitude);</code> before <code>&lt;/body&gt;</code> end tag</li>
+        </ol>
+        <strong>Whole code:</strong>
+<pre>
+&lt;body class="<strong>map-google</strong>"&gt;
+    <em style="color: #7c7c7c">// your HTML content</em>
+    &lt;script type="text/javascript" src="assets/js/custom-map.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="assets/js/custom.js"&gt;&lt;/script&gt; <em style="color: #7c7c7c">// this script needs to be called every time</em>
+    &lt;script&gt;
+        _latitude = 48.87; <em style="color: #7c7c7c">// These two lines represent the center of your map</em>
+        _longitude = 2.29; <em style="color: #7c7c7c">// These two lines represent the center of your map</em>
+        createHomepageGoogleMap(_latitude,_longitude);
+    &lt;/script&gt;
+&lt;/body&gt;
+</pre>
+        <br><br>
+        <h4><strong>2. OpenStreetMap</strong></h4>
+        <ol>
+            <li>Add <code><strong>map-osm</strong></code> class to the <code>&lt;body&gt;</code> tag</li>
+            <li>Make sure you are calling <code>&lt;script type="text/javascript" src="assets/js/custom-map.js"&gt;&lt;/script&gt;</code></li>
+            <li>Set <code>_latitude</code>, <code>_longitude</code> and call function <code>createHomepageOSM(_latitude,_longitude);</code> before <code>&lt;/body&gt;</code> end tag</li>
+        </ol>
+        <strong>Whole code:</strong>
+<pre>
+&lt;body class="<strong>map-osm</strong>"&gt;
+    <em style="color: #7c7c7c">// your HTML content</em>
+    &lt;script type="text/javascript" src="assets/js/custom-map.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="assets/js/custom.js"&gt;&lt;/script&gt; <em style="color: #7c7c7c">// this script needs to be called every time</em>
+    &lt;script&gt;
+        _latitude = 48.87; <em style="color: #7c7c7c">// These two lines represent the center of your map</em>
+        _longitude = 2.29; <em style="color: #7c7c7c">// These two lines represent the center of your map</em>
+        createHomepageOSM(_latitude,_longitude);
+    &lt;/script&gt;
+&lt;/body&gt;
+</pre>
+
+        <hr>
+        <h3 id="parallax"><strong>Enable / Disable Parallax</strong></h3>
+        <p>You can use <em>parallax</em> effect when scrolling on <strong>map</strong> and <strong>slider</strong>.</p>
+        <strong>For the Map:</strong>
+        <p><code>&lt;div id="<strong>map</strong>" class="<strong>has-parallax</strong>"&gt;&lt;/div&gt;</code></p>
+
+        <strong>For the Slider:</strong>
+        <p><code>&lt;div id="<strong>slider</strong>" class="<strong>has-parallax</strong>"&gt;...&lt;/div&gt;</code></p>
+
+        <hr>
+
+        <h3 id="footer-thumbnails"><strong>Thumbnails in the Footer</strong></h3>
+        <p>You can enable small thumbnails in the footer to make your web more interesting for users. This is just a funny feature,
+        but it can make your real estate site quite unique. Properties are loaded from <code>locations.js</code> so they
+        are your real properties.</p>
+
+        <p>In case you don't want to display these thumbnails, open <code>custom.js</code> and delete the call for
+            <code>drawFooterThumbnails();</code> function.
+        </p>
+
+        <hr>
+
+        <h3 id="locations.js"><strong>Loading Properties from Locations.js</strong></h3>
+        <p>Zoner loads properties data from <code>locations.js</code> file as default. It contains array with properties parameters.</p>
+        <p><strong>Example:</strong></p>
+<pre>
+[
+    "2479 Murphy Court", <em style="color: #7c7c7c">// Title</em>
+    "Minneapolis, MN 55402", <em style="color: #7c7c7c">// Locations</em>
+    "$36,000", <em style="color: #7c7c7c">// Price</em>
+    48.87, <em style="color: #7c7c7c">// Latitude</em>
+    2.29, <em style="color: #7c7c7c">// Longitude</em>
+    "property-detail.html", <em style="color: #7c7c7c">// Link to the property detail page</em>
+    "assets/img/properties/property-01.jpg", <em style="color: #7c7c7c">// Property thumbnail image</em>
+    "assets/img/property-types/apartment.png" <em style="color: #7c7c7c">// Property type icon</em>
+],
+</pre>
+        <hr>
+
+        <h3 id="editing-blocks"><strong><em>Block</em> Class</strong></h3>
+
+        <p>You can use <em>block</em> class if you want to add padding-up and padding-down to the whole section. To enable this effect, simply add
+            <code>has-parallax</code> class on <strong>map</strong> or <strong>slider</strong> element.
+        </p>
+
+<pre>
+&lt;div class="<strong>block</strong>"&gt;
+    &lt;section id="your-section"&gt;
+        <em style="color: #7c7c7c">// your HTML content</em>
+    &lt;/section&gt;
+&lt;/div&gt;
+</pre>
+        <hr>
+
+        <h3 id="editing-source-scss-files"><strong>Editing source SCSS Files</strong></h3>
+
+        <p>
+            Zoner uses an SCSS files for styling. If you want to edit source SCSS files, you need to use an SCSS Compiler.
+            Or you can edit regular CSS files located in <strong><em>assets/css</em></strong>
+        </p>
+
+        <hr>
+
+        <h3 id="colors"><strong>Colors</strong></h3>
+
+        <p>To edit colors, you can open SCSS file located at<em>assets/scss/<strong>_variables.scss</strong></em>. But you need mentioned SCSS compiler. Otherwise you can replace all occurrences of
+        the same color in CSS file located at <em>assets/css/<strong>style.css</strong></em></p>
+
+        <hr>
+
+
+        <h3 id="email"><strong>Email Settings</strong></h3>
+        <p>An user can contact you using contact form in the footer. To set e-mail address where you want to receive e-mails and other settings open <strong><em>contact.php</em></strong>
+        located in root directory.</p>
+
+        <strong>contact.php</strong> settings you can change:
+<pre>
+$to = 'hithemestarz@gmail.com'; <em style="color: #7c7c7c">// Here you can set address for receiving emails (usually your email)</em>
+$subject = 'Message From Your Website Contact Form'; <em style="color: #7c7c7c">// Message displayed in "subject" label in email</em>
+</pre>
+        <h4><strong>Email address for reply</strong></h4>
+        <p><strong>Direct reply to users email</strong><br>You can also change, how you want to reply to email. You can set the email <em>"from"</em> to be the email which user has provided in contact form,
+        so you can directly reply him, just to click on "reply" button in your email interface. The code is this:</p>
+<pre>$headers = 'From: ' .$email . "\r\n"; <em style="color: #7c7c7c">// Email "from" the same as user has provided. Default state</em></pre>
+        <p><strong>One incoming email address or "noreply" address</strong><br>Or you can use one address widely known as <em>"noreply@yourdomain.com"</em> and users email address
+        will be displayed in body of the message. Then you need to <em>uncomment</em> (remove "//" dashes) of the commented code and comment the code above.
+            The final code should look like this:</p>
+<pre>
+<em style="color: #7c7c7c">//$headers = 'From: ' .$email . "\r\n";</em>
+
+$headers = 'From: noreply@domain.com' . "\r\n";
+
+$body .= "";
+$body .= "Email: ";
+$body .= $email;
+$body .= "\n";
+</pre>
+        <p><mark>Note:</mark> Your hosting provider has to support PHP in order to make the contact form work.</p>
+        <hr>
+
+		<h3 id="dynamic-markers"><strong>Dynamically Display Markers on Google Map</strong></h3>
+		
+		<ul>
+			<li>Open <strong>custom-map.js</strong></li>
+			<li>Find <code>// newMarkers[i].setVisible(true); </code> and remove slashes <code>//</code></li>
+			<li>Find <code>// newMarkers[i].setVisible(false); </code> and remove slashes <code>//</code></li>
+			<li>Save</li>
+		</ul>
+
+        <hr>
+
+        <h3 id="rtl"><strong>RTL Support</strong></h3>
+        <h4><strong>CSS part</strong></h4>
+        <p>To enable RTL support for Zoner you need to add:</p>
+<pre>
+&lt;link rel="stylesheet" href="assets/css/bootstrap-rtl.min.css" type="text/css">
+&lt;link rel="stylesheet" href="assets/css/rtl.css" type="text/css">
+</pre>
+        <p><strong>after</strong> the <code>style.css</code> in <code>&lt;head></code> tag, so it looks like:</p>
+
+<pre>
+&lt;link rel="stylesheet" href="assets/css/style.css" type="text/css">
+&lt;link rel="stylesheet" href="assets/css/bootstrap-rtl.min.css" type="text/css">
+&lt;link rel="stylesheet" href="assets/css/rtl.css" type="text/css">
+</pre>
+
+        <h4><strong>JS part</strong></h4>
+        <p>You need also call for using or not using RTL in Owl Carousel. Default is <strong>false</strong>. There are two states:</p>
+        <ul>
+            <li><strong>false</strong> - do not use RTL support for </li>
+            <li><strong>true</strong> - use RTL support for </li>
+        </ul>
+        <p>These states are use in function <code>initializeOwl()</code> which is at the bottom of the page.</p>
+        <strong>Enable RTL support for Owl Carousel:</strong>
+<pre>
+$(window).load(function(){
+    initializeOwl(<strong>true</strong>);
+});
+</pre>
+        <hr>
+		
+        <p><strong>Icons used</strong></p>
+        <ul>
+            <li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+        </ul>
+
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Theme Starz</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.mooc.house.user</groupId>
+	<artifactId>user-srv</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>user-service</name>
+	<description>User Service for house</description>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<springfox.version>2.2.2</springfox.version>
+		<logbook.version>1.3.0</logbook.version>
+		<start.class>com.mooc.house.user.UserSrvApplication</start.class>
+	</properties>
+	
+   <dependencyManagement>
+		<dependencies>
+			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>1.4.7.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope> <!--  我们一贯习惯以import的方式来导入sb和spring cloud，所以我们这里改变引入方式，将parent删除然后将sb import进来好了，一个拥有spring cloud的sping boot工程就创建好了
+那么引入spring cloud dependencies有什么好处呢，和spring boot dependencies一样，为我们进行版本管理，这里版本管理是组件的版本，它可以提供给我们一套兼容的组件；
+而无需我们关心版本也不用在pom中输入版本，比如我们这里的Eureka为例，我们无需输入版本号 -->
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR7</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+		</dependency>
+	   <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+	      <groupId>org.springframework.cloud</groupId>
+	      <artifactId>spring-cloud-starter-zipkin</artifactId>
+       </dependency> 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+	       <groupId>org.zalando</groupId>
+	      <artifactId>logbook-core</artifactId>
+	      <version>${logbook.version}</version>
+        </dependency>
+	    <dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>logbook-servlet</artifactId>
+			<version>${logbook.version}</version>
+	    </dependency>
+		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>logbook-httpclient</artifactId>
+			<version>${logbook.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>logbook-spring-boot-starter</artifactId>
+			<version>${logbook.version}</version>
+		</dependency>
+		
+		<dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		
+		<dependency> <!-- exclude掉spring-boot的默认log配置 -->  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter</artifactId>  
+        <exclusions>  
+            <exclusion>  
+                <groupId>org.springframework.boot</groupId>  
+                <artifactId>spring-boot-starter-logging</artifactId>  
+            </exclusion>  
+           </exclusions>   
+       </dependency>
+
+	    <dependency>
+           <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-log4j2</artifactId>
+       </dependency> 
+       
+       	<dependency>
+	      <groupId>com.lmax</groupId>
+	      <artifactId>disruptor</artifactId>
+	      <version>3.3.6</version>
+	    </dependency>
+	
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
+		<dependency>
+           <groupId>com.google.guava</groupId>
+           <artifactId>guava</artifactId>
+           <version>18.0</version>
+       </dependency>
+       
+        <dependency>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-lang3</artifactId>
+		  <version>3.4</version>
+		</dependency>
+		
+		 <dependency>
+		  <groupId>commons-beanutils</groupId>
+		  <artifactId>commons-beanutils</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-redis</artifactId>
+		</dependency>
+		
+		<dependency>
+           <groupId>com.auth0</groupId>
+           <artifactId>java-jwt</artifactId>
+           <version>3.1.0</version>
+         </dependency>
+         
+       <dependency>
+        <groupId>io.springfox</groupId>
+         <artifactId>springfox-swagger2</artifactId>
+         <version>${springfox.version}</version>
+       </dependency>
+       
+        <dependency>
+        <groupId>io.springfox</groupId>
+         <artifactId>springfox-swagger-ui</artifactId>
+         <version>${springfox.version}</version>
+       </dependency>
+          
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.24</version>
+       </dependency>
+      <dependency>
+      	<groupId>org.springframework.boot</groupId>
+      	<artifactId>spring-boot-configuration-processor</artifactId>
+      	<optional>true</optional>
+      </dependency>
+	</dependencies>
+
+	
+
+	<build>
+        <directory>${project.basedir}/target</directory>
+		<outputDirectory>${project.build.directory}/classes</outputDirectory>
+		<finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+            <!-- 我们这里将spring boot maven插件完善一下，将启动类配置-->
+				<groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-maven-plugin</artifactId>
+			    <version>1.4.7.RELEASE</version>
+			    <configuration>
+			        <mainClass>com.mooc.house.user.UserServiceApplication</mainClass>
+			        <layout>ZIP</layout>
+			    </configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

@@ -1,0 +1,31 @@
+input {
+   file {
+      path => "/Users/wangjialuo/Documents/mooc_work/teach/services/house-srv/logs/house-info*"
+      sincedb_path => "/Users/wangjialuo/opt/apps/elk/new_elk/logstash-6.1.1/sincedb_house"
+      codec => multiline {
+             pattern => "^%{TIMESTAMP_ISO8601}"
+             negate  => true
+             what    => "previous"
+       }
+    }
+
+}
+filter {
+    grok { 
+       match => {
+              "message" => "(?m)%{TIMESTAMP_ISO8601:timestamp}\s+\[%{DATA:thread}\]\s+%{DATA:level}\s+\[%{DATA:class}\]\s+\[%{DATA:trace},%{DATA:span}\]\s+-\s+%{GREEDYDATA:msg}"
+         }
+    }
+
+    mutate {
+       "add_field" => {"appname" => "house"}
+    }
+
+}
+output {
+  elasticsearch {
+    hosts => ["localhost:9200"]
+    index => "house-info-%{+YYYY.MM.dd}"
+  }
+  stdout {codec => rubydebug}
+}

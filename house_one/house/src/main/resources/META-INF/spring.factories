@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.mooc1.house.autoconfig.HttpClientAutoConfiguration
