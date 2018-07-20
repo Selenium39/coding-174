@@ -6,12 +6,12 @@
 - `Maven`:  版本3.0及以上
 - `开发IDE`: Spring Tool Suite(STS)3.8.4.RELEASE 或者 Intellij  Idea
 - `Mysql` :  版本5.6及以上,导入sql文件houses_2018-01-07.sql         
-          ```Linux & Mac 下安装  
-                 Mac 通过brew install mysql 安装
-                 Linux 请参考博客https://www.cnblogs.com/bookwed/p/5896619.html
-           Windows下安装   
-               请参考博客https://www.cnblogs.com/sshoub/p/4321640.html
-           ```
+```Linux & Mac 下安装  
+   Mac 通过brew install mysql 安装
+    Linux 请参考博客https://www.cnblogs.com/bookwed/p/5896619.html
+    Windows下安装   
+    请参考博客https://www.cnblogs.com/sshoub/p/4321640.html
+```
 
 `Redis` :   版本2.8及以上
 
@@ -28,22 +28,16 @@ $ cd src
 $ nohup ./redis-server &
 
 ```
-  Windows下安装            
-                下载地址：https://github.com/MSOpenTech/redis/releases。
-
-
-
-
-               
-                      
-                 Redis-x64-xxx.zip压缩包到 C 盘，解压后，将文件夹重新命名为 redis, 打开一个 cmd 窗口使用 
-                 cd命令切换目录到 C:\redis 运行 redis-server.exe redis.windows.conf 。
+ Windows下安装            
+ 下载地址：https://github.com/MSOpenTech/redis/releases。
+  Redis-x64-xxx.zip压缩包到 C 盘，解压后，将文件夹重新命名为 redis, 打开一个 cmd 窗口使用 
+  cd命令切换目录到 C:\redis 运行 redis-server.exe redis.windows.conf 。
 ```
 
 `Nginx` :   版本1.8.0及以上
 
 ```
-      Linux & Mac 下安装
+Linux & Mac 下安装
 $ wget http://nginx.org/download/nginx-1.8.1.tar.gz
 $ tar -xzvf nginx-1.8.1.tar.gz
 $ cd nginx-1.8.1
@@ -58,12 +52,12 @@ $ sbin/nginx
 #修改nginx.conf进行reload即可生效
 $ sbin/nginx -s reload
 
-      Windows下安装 
-                下载 http://nginx.org/download/nginx-1.8.1.zip
-                 解压后，进入nginx目录，修改nginx.conf文件，执行nginx.exe
+Windows下安装 
+下载 http://nginx.org/download/nginx-1.8.1.zip
+解压后，进入nginx目录，修改nginx.conf文件，执行nginx.exe
 
-    
-``` 
+```
+
 ### 1.2 打包部署
 
  - SpringAdmin监控工程的打包启动     
